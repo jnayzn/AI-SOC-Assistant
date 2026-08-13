@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-gray-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+  }
+
+  :root {
+    --chart-tooltip-bg: #ffffff;
+    --chart-tooltip-border: #e2e8f0;
+    --chart-tooltip-text: #0f172a;
+    --chart-tooltip-muted: #64748b;
+    --chart-legend-text: #475569;
+  }
+
+  .dark {
+    --chart-tooltip-bg: #0f172a;
+    --chart-tooltip-border: #1e293b;
+    --chart-tooltip-text: #e2e8f0;
+    --chart-tooltip-muted: #94a3b8;
+    --chart-legend-text: #cbd5e1;
+  }
+
+  /* Chantier P: premium slim scrollbars (purely cosmetic, no layout impact). */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300 dark:bg-slate-700;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-600;
+  }
+}
+
+@layer utilities {
+  /* Reusable premium surface treatment: soft gradient sheen + glass border,
+     used by Navbar/Sidebar and any card that wants an elevated look without
+     changing its markup structure. */
+  .glass-surface {
+    @apply border border-white/40 bg-white/70 backdrop-blur-md dark:border-slate-800/60 dark:bg-slate-900/70;
+  }
+
+  .premium-fade-in {
+    animation: premium-fade-in 0.25s ease-out;
+  }
+}
+
+@keyframes premium-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
