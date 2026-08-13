@@ -1,0 +1,21 @@
+# Normalize line endings: store everything as LF in the repository.
+# This silences the "LF will be replaced by CRLF" warnings and keeps
+# the repo consistent across Windows / macOS / Linux.
+* text=auto eol=lf
+
+# Scripts that MUST stay LF (break with CRLF when run on Linux / in Docker)
+*.sh   text eol=lf
+*.py   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+
+# Windows-only scripts keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Treat these as binary (never convert)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary
